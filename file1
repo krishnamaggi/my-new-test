@@ -1,0 +1,14 @@
+Git always runs inside a bash shell, and uses a number of shell environment variables to determine how it behaves. Occasionally, it comes in handy to know what these are, and how they can be used to make Git behave the way you want it to. This isn’t an exhaustive list of all the environment variables Git pays attention to, but we’ll cover the most useful.
+
+Global Behavior
+Some of Git’s general behavior as a computer program depends on environment variables.
+
+GIT_EXEC_PATH determines where Git looks for its sub-programs (like git-commit, git-diff, and others). You can check the current setting by running git --exec-path.
+
+HOME isn’t usually considered customizable (too many other things depend on it), but it’s where Git looks for the global configuration file. If you want a truly portable Git installation, complete with global configuration, you can override HOME in the portable Git’s shell profile.
+
+PREFIX is similar, but for the system-wide configuration. Git looks for this file at $PREFIX/etc/gitconfig.
+
+GIT_CONFIG_NOSYSTEM, if set, disables the use of the system-wide configuration file. This is useful if your system config is interfering with your commands, but you don’t have access to change or remove it.
+
+GIT_PAGER controls the program used to display multi-page output on the command line. If this is unset, PAGER will be used as a fallback.
