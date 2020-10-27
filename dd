@@ -1,0 +1,16 @@
+GIT_EDITOR is the editor Git will launch when the user needs to edit some text (a commit message, for example). If unset, EDITOR will be used.
+
+Repository Locations
+Git uses several environment variables to determine how it interfaces with the current repository.
+
+GIT_DIR is the location of the .git folder. If this isn’t specified, Git walks up the directory tree until it gets to ~ or /, looking for a .git directory at every step.
+
+GIT_CEILING_DIRECTORIES controls the behavior of searching for a .git directory. If you access directories that are slow to load (such as those on a tape drive, or across a slow network connection), you may want to have Git stop trying earlier than it might otherwise, especially if Git is invoked when building your shell prompt.
+
+GIT_WORK_TREE is the location of the root of the working directory for a non-bare repository. If not specified, the parent directory of $GIT_DIR is used.
+
+GIT_INDEX_FILE is the path to the index file (non-bare repositories only).
+
+GIT_OBJECT_DIRECTORY can be used to specify the location of the directory that usually resides at .git/objects.
+
+GIT_ALTERNATE_OBJECT_DIRECTORIES is a colon-separated list (formatted like /dir/one:/dir/two:…) which tells Git where to check for objects if they aren’t in GIT_OBJECT_DIRECTORY. If you happen to have a lot of projects with large files that have the exact same contents, this can be used to avoid storing too many copies of them.
